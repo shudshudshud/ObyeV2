@@ -27,8 +27,8 @@ export class LoginPage {
     this.googleAuth.login().then(() => { 
       let userGoogle: UserSocialProviderDetailsData = this.user.social.google.data;
       alert(userGoogle.full_name + " - " + userGoogle.email);
-    }).catch(() => { 
-      alert("Auth failed!");
+    }).catch((err) => { 
+      alert("Auth failed - reason: " + err);
     })
     /*
     this.googleAuth.login().then((data: AuthLoginResult) => {
