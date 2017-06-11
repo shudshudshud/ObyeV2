@@ -23,6 +23,9 @@ import { TabsPage } from '../tabs/tabs';
         <ion-icon name="logo-facebook"></ion-icon>
         Log in with Facebook!
       </button>
+     <button ion-button class="button-block" color="dark" (click)="goToMainPage()">
+      Bypass login (Developers)
+     </button>
     </ion-col>
     </ion-row>
   </ion-grid>
