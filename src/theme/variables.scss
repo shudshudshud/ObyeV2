@@ -76,3 +76,60 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+// can import all new fonts from the assets folder in src following this format
+// remember to change font names to names without spacing
+
+@import '../assets/fonts/NewAthleticM54.ttf';
+
+
+@font-face {
+  font-family: "NewAthleticM54";
+  font-style: normal;
+  font-weight: 6500;
+  src: local("NewAthleticM54"), local("NewAthleticM54"), url("#{$font-path}/NewAthleticM54.ttf") format("truetype");
+}
+
+// $font-family-base: "Maven Pro"; THIS DOES NOT WORK!
+$font-family-md-base: "NewAthleticM54"; // THIS DOES WORK
+$font-family-ios-base: "NewAthleticM54"; // THIS DOES WORK
+$font-family-wp-base: "NewAthleticM54"; // THIS DOES WORK
+
+
+
+// Below is a sample of how others implemented a different font at different boldness
+
+/*
+@font-face {
+  font-family: "Maven Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Maven Pro"), local("Maven-Pro-Regular"), url("#{$font-path}/MavenPro-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Maven Pro";
+  font-style: normal;
+  font-weight: 500;
+  src: local("Maven Pro Medium"), local("Maven-Pro-Medium"), url("#{$font-path}/MavenPro-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Maven Pro";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Maven Pro Bold"), local("Maven-Pro-Bold"), url("#{$font-path}/MavenPro-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Maven Pro";
+  font-style: normal;
+  font-weight: 900;
+  src: local("Maven Pro Ultra Bold"), local("Maven-Pro-Regular-Ultra-Bold"), url("#{$font-path}/MavenPro-Black.ttf") format("truetype");
+}
+
+// $font-family-base: "Maven Pro"; THIS DOES NOT WORK!
+$font-family-md-base: "Maven Pro"; // THIS DOES WORK
+$font-family-ios-base: "Maven Pro"; // THIS DOES WORK
+$font-family-wp-base: "Maven Pro"; // THIS DOES WORK
+
+*/
