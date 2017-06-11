@@ -23,6 +23,9 @@ const cloudSettings: CloudSettings = {
   'auth': {
     'google': {
       'webClientId': '1033632876363-86c0kg5a20l6d8vmh7jhgdciu3a0fcpv.apps.googleusercontent.com',
+    },
+    'facebook': {
+      'scope': []// ['permission1', 'permission2']
     }
   }
 };

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { GoogleAuth, Auth, User, UserSocialProviderDetailsData } from '@ionic/cloud-angular';
+import { NavController } from 'ionic-angular';
+import { GoogleAuth, FacebookAuth, Auth, User, UserSocialProviderDetailsData } from '@ionic/cloud-angular';
+import { TabsPage } from '../tabs/tabs';
 
 @Component({
   template: `
@@ -10,15 +12,29 @@ import { GoogleAuth, Auth, User, UserSocialProviderDetailsData } from '@ionic/cl
   </ion-header>
 
   <ion-content padding>
-  <button ion-button (click)="loginGoogle()">
-    Log in with Google!
-  </button>
+   <ion-grid text-center>
+    <ion-row justify-content-center> 
+    <ion-col col-auto>
+      <button ion-button class="button-block" icon-left color="danger" (click)="loginGoogle()">
+        <ion-icon name="logo-googleplus"></ion-icon>
+        Log in with Google!
+      </button>
+      <button ion-button class="button-block" icon-left (click)="loginFacebook()">
+        <ion-icon name="logo-facebook"></ion-icon>
+        Log in with Facebook!
+      </button>
+    </ion-col>
+    </ion-row>
+  </ion-grid>
   </ion-content>
 `
 })
 export class LoginPage {
   
-  constructor(public googleAuth: GoogleAuth, public auth: Auth, public user: User) {
+  constructor(public googleAuth: GoogleAuth, public facebookAuth: FacebookAuth, public auth: Auth, public user: User, public navCtrl: NavController) {
+    if (this.auth.isAuthenticated()) {
+      this.goToMainPage();
+    }
 
   }
 
@@ -27,6 +43,7 @@ export class LoginPage {
     this.googleAuth.login().then(() => { 
       let userGoogle: UserSocialProviderDetailsData = this.user.social.google.data;
       alert(userGoogle.full_name + " - " + userGoogle.email);
+      this.goToMainPage();
     }).catch((err) => { 
       alert("Auth failed - reason: " + err);
     })
@@ -40,6 +57,23 @@ export class LoginPage {
     */
 
     console.log("Past promise")
+  }
+
+
+  loginFacebook() {
+    console.log("Beginning Facebook Login");
+    this.facebookAuth.login().then(() => { 
+      let userFacebook: UserSocialProviderDetailsData = this.user.social.facebook.data;
+      alert("Facebook data: " + userFacebook.full_name + " - " + userFacebook.email);
+      this.goToMainPage();
+    }).catch((err) => { 
+      alert("Auth failed - reason: " + err);
+    })
+  }
+
+  goToMainPage() {
+    console.log("Navigating to main page..");
+    this.navCtrl.setRoot(TabsPage);
   }
 
 }
