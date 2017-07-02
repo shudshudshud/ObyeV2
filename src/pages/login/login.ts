@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { GoogleAuth, FacebookAuth, Auth, User, UserSocialProviderDetailsData } from '@ionic/cloud-angular';
 import { TabsPage } from '../tabs/tabs';
+import { userDataStorageKey, testUserData } from '../../globals'
 
 @Component({
   template: `
@@ -33,10 +34,13 @@ import { TabsPage } from '../tabs/tabs';
 `
 })
 export class LoginPage {
-  
+  //streakOne: Streak = {"uid": "1234", "title": "Run 15 min a day!", "daysCompleted": 10, "daysTotal": 10}
+  //defaultUserData: UserData = { "streaks": [this.streakOne]}
+
   constructor(public googleAuth: GoogleAuth, public facebookAuth: FacebookAuth, public auth: Auth, public user: User, public navCtrl: NavController) {
     if (this.auth.isAuthenticated()) {
-      this.goToMainPage();
+      this.auth.logout();
+      // this.goToMainPage();
     }
 
   }
@@ -46,6 +50,28 @@ export class LoginPage {
     this.googleAuth.login().then(() => { 
       let userGoogle: UserSocialProviderDetailsData = this.user.social.google.data;
       alert(userGoogle.full_name + " - " + userGoogle.email);
+
+      // Gets the user data from the server (if any existing data is present)
+      let userData: UserData = this.user.get(userDataStorageKey, null);
+
+      // If we don't see any existing data
+      if (userData == null) {
+        // Set this user's (local) data to default
+        this.user.set(userDataStorageKey, testUserData);
+        // Set our local copy to default as well
+        userData = testUserData;
+        alert("No data present - set to defaults!");
+        this.user.save().then(() => { alert("User Data saved to Ionic!")}).catch((err) => "Error: " + err);
+      } else {
+        alert("data was already stored! - " + userData.toString())
+      }
+
+      for (let userStreak of userData.streaks) {
+        alert("Streak name: " + userStreak.streak.goalDescription);
+      }
+
+
+
       this.goToMainPage();
     }).catch((err) => { 
       alert("Auth failed - reason: " + err);
