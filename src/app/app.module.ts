@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
+import { ChallengesPage } from '../pages/challenges/challenges';
+import { CaloriePage } from '../pages/calorie/calorie';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
+import { SocialPage } from '../pages/social/social';
+import { SettingsPage } from '../pages/settings/settings';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -34,10 +36,12 @@ const cloudSettings: CloudSettings = {
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    ChallengesPage,
+    CaloriePage,
+    SocialPage,
     HomePage,
     TabsPage,
+    SettingsPage,
     LoginPage
   ],
   imports: [
@@ -48,10 +52,12 @@ const cloudSettings: CloudSettings = {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    ChallengesPage,
+    CaloriePage,
+    SocialPage,
     HomePage,
     TabsPage,
+    SettingsPage,
     LoginPage
   ],
   providers: [
