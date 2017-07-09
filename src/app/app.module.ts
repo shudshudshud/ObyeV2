@@ -15,6 +15,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 // Ionic Cloud services (used for auth)
 import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
+// Firebase + AngularFire2
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
+
 // Settings for the Ionic Cloud service
 const cloudSettings: CloudSettings = {
   'core': {
@@ -31,6 +36,8 @@ const cloudSettings: CloudSettings = {
 };
 
 
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -43,7 +50,9 @@ const cloudSettings: CloudSettings = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    CloudModule.forRoot(cloudSettings)
+    CloudModule.forRoot(cloudSettings),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
