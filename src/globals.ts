@@ -60,8 +60,28 @@ export const oilyFoodStreak: Streak =
   frequencyInfo: weeklyTwiceFrequency5Weeks,
 }
 
+export const friedChickenFoodStreak: Streak = 
+{
+  uid: 4,
+  type: dietFoodStreakClassification,
+  goalDescription: "No fried chicken",
+  frequencyInfo: weeklyTwiceFrequency5Weeks,
+}
+
+export const starvationFoodStreak: Streak = 
+{
+  uid: 5,
+  type: dietFoodStreakClassification,
+  goalDescription: "Starve yourself",
+  frequencyInfo: weeklyTwiceFrequency5Weeks,
+}
+
+
+
+
+
 // Streaks to populate with
-export const allStreaks: Streak[] = [sweetDrinksStreak, miloStreak, oilyFoodStreak];
+export const allStreaks: Streak[] = [sweetDrinksStreak, miloStreak, oilyFoodStreak, friedChickenFoodStreak, starvationFoodStreak];
 
 
 

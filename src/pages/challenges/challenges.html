@@ -8,4 +8,25 @@
 
 <ion-content padding>
 CHALLENGES WILL GO HERE
+
+
+  <ion-list>
+    <button ion-item *ngFor="let item of items | async">
+      <ion-card>
+        <ion-card-header>
+           {{ item.goalDescription }}
+        </ion-card-header>
+
+        <ion-card-content>
+          <div *ngIf="item.frequencyInfo.frequencyType == 0"> 
+            {{ item.frequencyInfo.instancesPerWeek }} times a week, for {{ item.frequencyInfo.cyclesToComplete  }} weeks.
+
+          </div>
+          <div *ngIf="item.frequencyInfo.frequencyType == 1">
+            Daily for  {{ item.frequencyInfo.cyclesToComplete  }} weeks
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </button>
+  </ion-list>
 </ion-content>

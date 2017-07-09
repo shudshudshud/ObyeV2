@@ -76,6 +76,9 @@ export class LoginPage {
   }
 
 
+  /**
+   * Reads all of the user's data from Ionic Auth
+   */
   readUserData() {
        // Gets the user data from the server (if any existing data is present)
       let userData: UserData = this.user.get(userDataStorageKey, null);
@@ -95,12 +98,11 @@ export class LoginPage {
       for (let userStreak of userData.streaks) {
         alert("User Streak name: " + userStreak.streak.goalDescription);
       }
-
-
-
-
   }
 
+  /**
+   * Goes from the login page to the main tabbed interface
+   */
   goToMainPage() {
      // FIREBASE STUFF
     const streaks = this.db.object('/streaks').subscribe(x => console.log(x));
@@ -108,6 +110,9 @@ export class LoginPage {
     this.navCtrl.setRoot(TabsPage);
   }
 
+  /**
+   * Populates firebase database with data from local variables
+   */
   populateDatabase() {
     const streaksDb = this.db.list("/streaks");
     allStreaks.forEach(element => {

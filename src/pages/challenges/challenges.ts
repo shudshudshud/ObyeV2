@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'page-challenges',
@@ -7,8 +8,9 @@ import { NavController } from 'ionic-angular';
 })
 export class ChallengesPage {
 
-  constructor(public navCtrl: NavController) {
-
+  items: FirebaseListObservable<any>;
+  constructor(public navCtrl: NavController, db: AngularFireDatabase) {
+    this.items = db.list('/streaks');
   }
 
 }
