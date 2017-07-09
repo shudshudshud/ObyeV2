@@ -9,8 +9,16 @@
 </ion-header>
 
 <ion-tabs>
+  <ion-tab [root]="tab1Root" tabIcon="home"></ion-tab> <!-- home -->
+  <ion-tab [root]="tab2Root" tabIcon="checkbox-outline"></ion-tab>
+  <ion-tab [root]="tab3Root" tabIcon="nutrition"></ion-tab>
+  <ion-tab [root]="tab4Root" tabIcon="contacts"></ion-tab>
+  <!-- <ion-tab [root]="tab5Root" tabIcon=""></ion-tab> -->
+  
+  <!--
   <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="Challenges" tabIcon="checkbox-outline"></ion-tab>
   <ion-tab [root]="tab3Root" tabTitle="Calorie" tabIcon="nutrition"></ion-tab>
   <ion-tab [root]="tab4Root" tabTitle="Social" tabIcon="contacts"></ion-tab>
+  -->
 </ion-tabs>
