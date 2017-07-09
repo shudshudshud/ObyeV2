@@ -1,12 +1,22 @@
 // Storing user data
 export const userDataStorageKey: string = "user-data";
 
+
+// Streak classifications
 export const dietDrinksStreakClassification: StreakClassification = 
 {
     maintype: StreakType.Diet,
     subtype: StreakSubtype.Drink
 }
 
+export const dietFoodStreakClassification: StreakClassification = 
+{
+    maintype: StreakType.Diet,
+    subtype: StreakSubtype.Food
+}
+
+
+// Frequencies
 export const dailyFrequencyTenWeeks: FrequencyInfo = 
 {
     frequencyType: FrequencyType.Daily,
@@ -14,6 +24,18 @@ export const dailyFrequencyTenWeeks: FrequencyInfo =
     instancesPerWeek: 7
 }
 
+// Frequencies
+export const weeklyTwiceFrequency5Weeks: FrequencyInfo = 
+{
+    frequencyType: FrequencyType.Weekly,
+    cyclesToComplete: 5,
+    instancesPerWeek: 2
+}
+
+
+
+
+// Actual streaks
 export const sweetDrinksStreak: Streak = 
 {
   uid: 1,
@@ -22,7 +44,29 @@ export const sweetDrinksStreak: Streak =
   frequencyInfo: dailyFrequencyTenWeeks,
 }
 
+export const miloStreak: Streak = 
+{
+  uid: 2,
+  type: dietDrinksStreakClassification,
+  goalDescription: "No MILO",
+  frequencyInfo: dailyFrequencyTenWeeks,
+}
 
+export const oilyFoodStreak: Streak = 
+{
+  uid: 3,
+  type: dietFoodStreakClassification,
+  goalDescription: "No oily food",
+  frequencyInfo: weeklyTwiceFrequency5Weeks,
+}
+
+// Streaks to populate with
+export const allStreaks: Streak[] = [sweetDrinksStreak, miloStreak, oilyFoodStreak];
+
+
+
+
+// Streak for a particular user
 export const testUserStreak: UserStreak = 
 {
     streak: sweetDrinksStreak,

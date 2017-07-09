@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { GoogleAuth, FacebookAuth, Auth, User, UserSocialProviderDetailsData } from '@ionic/cloud-angular';
 import { TabsPage } from '../tabs/tabs';
-import { userDataStorageKey, testUserData } from '../../globals'
+import { userDataStorageKey, testUserData, sweetDrinksStreak, allStreaks } from '../../globals'
+import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({
   template: `
@@ -27,6 +28,9 @@ import { userDataStorageKey, testUserData } from '../../globals'
      <button ion-button class="button-block" color="dark" (click)="goToMainPage()">
       Bypass login (Developers)
      </button>
+     <button ion-button class="button-block" color="dark" (click)="populateDatabase()">
+      Populate DB 
+     </button>
     </ion-col>
     </ion-row>
   </ion-grid>
@@ -37,11 +41,8 @@ export class LoginPage {
   //streakOne: Streak = {"uid": "1234", "title": "Run 15 min a day!", "daysCompleted": 10, "daysTotal": 10}
   //defaultUserData: UserData = { "streaks": [this.streakOne]}
 
-  constructor(public googleAuth: GoogleAuth, public facebookAuth: FacebookAuth, public auth: Auth, public user: User, public navCtrl: NavController) {
-    if (this.auth.isAuthenticated()) {
-      this.auth.logout();
-      // this.goToMainPage();
-    }
+  constructor(public googleAuth: GoogleAuth, public facebookAuth: FacebookAuth, public auth: Auth, public user: User, public navCtrl: NavController, public db: AngularFireDatabase) {
+
 
   }
 
@@ -51,7 +52,32 @@ export class LoginPage {
       let userGoogle: UserSocialProviderDetailsData = this.user.social.google.data;
       alert(userGoogle.full_name + " - " + userGoogle.email);
 
-      // Gets the user data from the server (if any existing data is present)
+      this.readUserData();
+      this.goToMainPage();
+
+    }).catch((err) => { 
+      alert("Auth failed - reason: " + err);
+    })
+  }
+
+
+  loginFacebook() {
+    console.log("Beginning Facebook Login");
+    this.facebookAuth.login().then(() => { 
+      let userFacebook: UserSocialProviderDetailsData = this.user.social.facebook.data;
+      alert("Facebook data: " + userFacebook.full_name + " - " + userFacebook.email);
+
+      this.readUserData();
+      this.goToMainPage();
+
+    }).catch((err) => { 
+      alert("Auth failed - reason: " + err);
+    })
+  }
+
+
+  readUserData() {
+       // Gets the user data from the server (if any existing data is present)
       let userData: UserData = this.user.get(userDataStorageKey, null);
 
       // If we don't see any existing data
@@ -67,42 +93,31 @@ export class LoginPage {
       }
 
       for (let userStreak of userData.streaks) {
-        alert("Streak name: " + userStreak.streak.goalDescription);
+        alert("User Streak name: " + userStreak.streak.goalDescription);
       }
 
 
 
-      this.goToMainPage();
-    }).catch((err) => { 
-      alert("Auth failed - reason: " + err);
-    })
-    /*
-    this.googleAuth.login().then((data: AuthLoginResult) => {
-      console.log("yay - login success!");
-      console.log(data);
-    }).catch((err) => {
-      console.log("Error for Google Login");
-    });
-    */
 
-    console.log("Past promise")
-  }
-
-
-  loginFacebook() {
-    console.log("Beginning Facebook Login");
-    this.facebookAuth.login().then(() => { 
-      let userFacebook: UserSocialProviderDetailsData = this.user.social.facebook.data;
-      alert("Facebook data: " + userFacebook.full_name + " - " + userFacebook.email);
-      this.goToMainPage();
-    }).catch((err) => { 
-      alert("Auth failed - reason: " + err);
-    })
   }
 
   goToMainPage() {
+     // FIREBASE STUFF
+    const streaks = this.db.object('/streaks').subscribe(x => console.log(x));
     console.log("Navigating to main page..");
     this.navCtrl.setRoot(TabsPage);
+  }
+
+  populateDatabase() {
+    const streaksDb = this.db.list("/streaks");
+    allStreaks.forEach(element => {
+      const streaksDb = this.db.object("/streaks/"+element.uid);
+      const dbPopulatePromise = streaksDb.update(element);
+    dbPopulatePromise
+      .then(_ => { console.log("Successfully populated DB: "); console.log(element); } )
+      .catch(err => console.log("Encountered error: " + err));
+    });
+
   }
 
 }
