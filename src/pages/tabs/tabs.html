@@ -8,13 +8,15 @@
   </ion-toolbar>
 </ion-header>
 
+<!-- new order of tabs: Home, Profile, Challenges Calories, Rewards -->
+
 <ion-tabs>
   <ion-tab [root]="tab1Root" tabIcon="home"></ion-tab> <!-- home -->
-  <ion-tab [root]="tab2Root" tabIcon="checkbox-outline"></ion-tab>
-  <ion-tab [root]="tab3Root" tabIcon="nutrition"></ion-tab>
-  <ion-tab [root]="tab4Root" tabIcon="contacts"></ion-tab>
-  <!-- <ion-tab [root]="tab5Root" tabIcon=""></ion-tab> -->
-  
+  <ion-tab [root]="tab2Root" tabIcon="contact"></ion-tab> <!-- profile -->
+  <ion-tab [root]="tab3Root" tabIcon="checkbox-outline"></ion-tab> <!-- challenges -->
+  <ion-tab [root]="tab4Root" tabIcon="nutrition"></ion-tab> <!-- calories -->
+  <ion-tab [root]="tab5Root" tabIcon="basket"></ion-tab> <!-- rewards -->
+
   <!--
   <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>
   <ion-tab [root]="tab2Root" tabTitle="Challenges" tabIcon="checkbox-outline"></ion-tab>

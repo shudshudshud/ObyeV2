@@ -5,11 +5,13 @@ import { MyApp } from './app.component';
 
 import { ChallengesPage } from '../pages/challenges/challenges';
 import { CaloriePage } from '../pages/calorie/calorie';
+import { RewardsPage } from '../pages/rewards/rewards';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { SocialPage } from '../pages/social/social';
 import { SettingsPage } from '../pages/settings/settings';
+import { ProfilePage } from '../pages/profile/profile';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -46,6 +48,8 @@ const cloudSettings: CloudSettings = {
     ChallengesPage,
     CaloriePage,
     SocialPage,
+    RewardsPage,
+    ProfilePage,
     HomePage,
     TabsPage,
     SettingsPage,
@@ -64,6 +68,8 @@ const cloudSettings: CloudSettings = {
     ChallengesPage,
     CaloriePage,
     SocialPage,
+    RewardsPage,
+    ProfilePage,
     HomePage,
     TabsPage,
     SettingsPage,

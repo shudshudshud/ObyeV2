@@ -5,6 +5,8 @@ import { SettingsPage } from '../settings/settings';
 import { SocialPage } from '../social/social';
 import { ChallengesPage } from '../challenges/challenges';
 import { CaloriePage } from '../calorie/calorie';
+import { RewardsPage } from '../rewards/rewards';
+import { ProfilePage } from '../profile/profile';
 import { HomePage } from '../home/home';
 
 @Component({
@@ -13,9 +15,10 @@ import { HomePage } from '../home/home';
 export class TabsPage {
 
   tab1Root = HomePage;
-  tab2Root = ChallengesPage;
-  tab3Root = CaloriePage;
-  tab4Root = SocialPage;
+  tab2Root = ProfilePage;
+  tab3Root = ChallengesPage;
+  tab4Root = CaloriePage;
+  tab5Root = RewardsPage;
 
   goToSettings() {
     this.navCtrl.push(SettingsPage); // Push allows us to go back to the previous page
