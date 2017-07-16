@@ -1,8 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons right>
-      <button ion-button icon-only color="royal" (click)="goToSettings()">
-        <ion-icon name="settings"></ion-icon>
+      <button ion-button icon-only color="royal" (click)="goToSocial()">
+        <ion-icon name="people"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons left>
+      <button ion-button icon-only color="royal" (click)="goToSummary()">
+        <ion-icon name="paper"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>
@@ -11,11 +16,11 @@
 <!-- new order of tabs: Home, Profile, Challenges Calories, Rewards -->
 
 <ion-tabs>
-  <ion-tab [root]="tab1Root" tabIcon="home"></ion-tab> <!-- home -->
-  <ion-tab [root]="tab2Root" tabIcon="contact"></ion-tab> <!-- profile -->
-  <ion-tab [root]="tab3Root" tabIcon="checkbox-outline"></ion-tab> <!-- challenges -->
-  <ion-tab [root]="tab4Root" tabIcon="nutrition"></ion-tab> <!-- calories -->
-  <ion-tab [root]="tab5Root" tabIcon="basket"></ion-tab> <!-- rewards -->
+  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab> <!-- home -->
+  <ion-tab [root]="tab2Root" tabTitle="Profile" tabIcon="contact"></ion-tab> <!-- profile -->
+  <ion-tab [root]="tab3Root" tabTitle="Challenges" tabIcon="checkbox-outline"></ion-tab> <!-- challenges -->
+  <ion-tab [root]="tab4Root" tabTitle="Calories" tabIcon="nutrition"></ion-tab> <!-- calories -->
+  <ion-tab [root]="tab5Root" tabTitle="Rewards" tabIcon="basket"></ion-tab> <!-- rewards -->
 
   <!--
   <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>

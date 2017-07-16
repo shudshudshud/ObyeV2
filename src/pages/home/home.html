@@ -4,7 +4,8 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+  <!--
   <h2>Welcome to Ionic!</h2>
   <p>
     This starter project comes with simple tabs-based layout for apps
@@ -14,8 +15,43 @@
     Take a look at the <code>src/pages/</code> directory to add or change tabs,
     update any existing page or create new pages.
   </p>
-  
+  -->
 
+
+
+  <ion-fab top left>
+    <button ion-fab bigger>
+      <ion-icon name="basketball" > </ion-icon> 
+    </button>
+  </ion-fab>
+
+  <ion-fab top right>
+    <button ion-fab bigger>
+      <ion-icon name="restaurant"> </ion-icon> 
+    </button>
+  </ion-fab>
+
+   
+  <ion-card>
+  <ion-card-header>
+    Your Current Streaks
+  </ion-card-header>
+
+  <ion-list>
+    <button ion-item>
+      <ion-icon name="cart" item-start></ion-icon>
+      Shopping
+    </button>
+
+    <button ion-item>
+      <ion-icon name="medical" item-start></ion-icon>
+      Hospital
+    </button>
+ 
+  </ion-list>
+</ion-card>
+
+<!--
   <button ion-button round>
     <ion-icon name="basketball"> </ion-icon>    
   </button>
@@ -23,7 +59,7 @@
   <button ion-button round>
     <ion-icon name="restaurant"> </ion-icon>    
   </button>
-  <!--
+  
   <ion-card>
     <img class="card-image" src="assets/img/restaurant.svg"/>
     

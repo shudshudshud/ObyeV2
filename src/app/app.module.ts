@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { SocialPage } from '../pages/social/social';
+import { SummaryPage } from '../pages/summary/summary';
 import { SettingsPage } from '../pages/settings/settings';
 import { ProfilePage } from '../pages/profile/profile';
 
@@ -52,7 +53,7 @@ const cloudSettings: CloudSettings = {
     ProfilePage,
     HomePage,
     TabsPage,
-    SettingsPage,
+    SummaryPage,
     LoginPage
   ],
   imports: [
@@ -72,7 +73,7 @@ const cloudSettings: CloudSettings = {
     ProfilePage,
     HomePage,
     TabsPage,
-    SettingsPage,
+    SummaryPage,
     LoginPage
   ],
   providers: [

@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { SettingsPage } from '../settings/settings';
 import { SocialPage } from '../social/social';
+import { SummaryPage } from '../summary/summary';
 import { ChallengesPage } from '../challenges/challenges';
 import { CaloriePage } from '../calorie/calorie';
 import { RewardsPage } from '../rewards/rewards';
@@ -20,8 +21,13 @@ export class TabsPage {
   tab4Root = CaloriePage;
   tab5Root = RewardsPage;
 
-  goToSettings() {
-    this.navCtrl.push(SettingsPage); // Push allows us to go back to the previous page
+  goToSocial() {
+    this.navCtrl.push(SocialPage); // Push allows us to go back to the previous page
+                                     // as opposed to changing root. See login.ts for more info
+  }
+
+  goToSummary() {
+    this.navCtrl.push(SummaryPage); // Push allows us to go back to the previous page
                                      // as opposed to changing root. See login.ts for more info
   }
 

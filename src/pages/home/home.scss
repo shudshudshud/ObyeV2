@@ -1,6 +1,7 @@
 page-home {
 
 
+
 /*
  .card-image {
      height:100%;
@@ -16,5 +17,23 @@ page-home {
 
   }
 */
+
+  ion-card-header {
+    text-align: center;
+  }
+
+
+  .fab ion-icon {
+        font-size: 60px; 
+  }
+
+
+  .fab[bigger] {
+    margin-block-start: 10px;  
+    margin: 14px;
+    width: 150px;
+    height: 150px;
+    line-height: 40px;
+  }
 
 }
