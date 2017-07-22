@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { GoogleAuth, FacebookAuth, Auth, User, UserSocialProviderDetailsData } from '@ionic/cloud-angular';
 import { TabsPage } from '../tabs/tabs';
-import { userDataStorageKey, testUserData, sweetDrinksStreak, allStreaks } from '../../globals'
+import { userDataStorageKey, testUserData, liftStreak, allStreaks } from '../../globals'
 import { AngularFireDatabase } from 'angularfire2/database';
 
 @Component({

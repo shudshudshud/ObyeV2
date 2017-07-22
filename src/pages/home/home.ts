@@ -9,6 +9,7 @@ import { StartingPopoverPage } from '../popovers/startingpopover';
 import { ExercisePopoverPage } from './exercisepopover';
 import { DietPopoverPage } from './dietpopover';
 */
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'page-home',
@@ -16,8 +17,9 @@ import { DietPopoverPage } from './dietpopover';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController, public popoverCtrl: PopoverController) {
-
+  items: FirebaseListObservable<any>;
+  constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, db: AngularFireDatabase) {
+    this.items = db.list('/streaks');
   }
 
 

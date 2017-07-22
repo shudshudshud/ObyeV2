@@ -56,6 +56,17 @@
     Your Current Streaks
   </ion-card-header>
 
+<ion-list>
+  <button ion-item *ngFor="let item of items | async">
+
+        <ion-icon *ngIf="item.type.maintype == 0" name="basketball" item-start></ion-icon>
+        <ion-icon *ngIf="item.type.maintype == 1" name="restaurant" item-start></ion-icon>
+        {{ item.goalDescription }}
+      
+  </button>
+</ion-list>
+
+<!--
   <ion-list>
     <button ion-item>
       <ion-icon name="basketball" item-start></ion-icon>
@@ -118,6 +129,7 @@
     </button>
     
   </ion-list>
+-->
 </ion-card>
 </div>
 <!--
