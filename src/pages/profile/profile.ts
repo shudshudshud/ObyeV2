@@ -25,8 +25,8 @@ export class ProfilePage {
       profile = this.user.social.google;
     } else if (this.user.social.facebook != undefined) {
       profile = this.user.social.facebook;
-    }
-on
+   }
+
     // Test
     if (profile == undefined) {
       this.name = "2 Chainz";
