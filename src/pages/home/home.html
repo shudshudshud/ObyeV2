@@ -57,11 +57,17 @@
   </ion-card-header>
 
 <ion-list>
-  <button ion-item *ngFor="let item of items | async">
+  <button ion-item *ngFor="let item of items">
 
-        <ion-icon *ngIf="item.type.maintype == 0" name="basketball" item-start></ion-icon>
-        <ion-icon *ngIf="item.type.maintype == 1" name="restaurant" item-start></ion-icon>
-        {{ item.goalDescription }}
+        <ion-icon *ngIf="item.streak.type.maintype == 0" name="basketball" item-start></ion-icon>
+        <ion-icon *ngIf="item.streak.type.maintype == 1" name="restaurant" item-start></ion-icon>
+        {{ item.streak.goalDescription }}
+        <button ion-button item-end icon-only small round color="secondary" (click)="handleAccept(item)">
+          <ion-icon name="checkmark"></ion-icon>
+        </button>
+        <button ion-button item-end icon-only small round color="danger">
+          <ion-icon name="close"></ion-icon>
+        </button>
       
   </button>
 </ion-list>

@@ -110,7 +110,7 @@ export const allStreaks: Streak[] = [runStreak, liftStreak, miloStreak, oilyFood
 
 
 // Streak for a particular user
-export const testUserStreak: UserStreak = 
+export const testUserLiftStreak: UserStreak = 
 {
     streak: liftStreak,
     cyclesCompleted: 5,
@@ -118,6 +118,19 @@ export const testUserStreak: UserStreak =
     startDate: new Date(2017, 6, 20, 10, 10, 10, 10),
     status: StreakStatus.Active
 }
+
+
+// Streak for a particular user
+export const testUserStarveStreak: UserStreak = 
+{
+    streak: starvationFoodStreak,
+    cyclesCompleted: 2,
+    numberCompletedThisWeek: 1,
+    startDate: new Date(2017, 6, 21, 10, 10, 10, 10),
+    status: StreakStatus.Active
+}
+
+
 
 export const testBodyData: BodyData = 
 {
@@ -128,7 +141,7 @@ export const testBodyData: BodyData =
 
 export const testUserData: UserData = 
 {
-    streaks: [testUserStreak],
+    streaks: [testUserLiftStreak, testUserStarveStreak],
     bodyData: testBodyData
 }
 

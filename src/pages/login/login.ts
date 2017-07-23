@@ -105,7 +105,7 @@ export class LoginPage {
    */
   goToMainPage() {
      // FIREBASE STUFF
-    const streaks = this.db.object('/streaks').subscribe(x => console.log(x));
+    // const streaks = this.db.object('/streaks').subscribe(x => console.log(x));
     console.log("Navigating to main page..");
     this.navCtrl.setRoot(TabsPage);
   }
