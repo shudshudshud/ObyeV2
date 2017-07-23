@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-homediet',
@@ -7,8 +7,11 @@ import { NavController } from 'ionic-angular';
 })
 export class HomeDietPage {
 
-  constructor(public navCtrl: NavController) {
+  items: UserStreak[]
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.items = navParams.get("params");
 
+    //alert(JSON.stringify(this.items));
   }
 
 }

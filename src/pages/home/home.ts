@@ -42,12 +42,18 @@ export class HomePage {
 
 
   goToHomeExercise() {
-    this.navCtrl.push(HomeExercisePage); // Push allows us to go back to the previous page
+    let exerciseUserStreaks: UserStreak[] = this.items.filter(function(item) {
+      return item.streak.type.maintype == StreakType.Exercise;
+    });
+    this.navCtrl.push(HomeExercisePage, {"params": exerciseUserStreaks}); // Push allows us to go back to the previous page
                                      // as opposed to changing root. See login.ts for more info
   }
   
   goToHomeDiet() {
-    this.navCtrl.push(HomeDietPage); // Push allows us to go back to the previous page
+    let dietUserStreaks: UserStreak[] = this.items.filter(function(item) {
+      return item.streak.type.maintype == StreakType.Diet;
+    });
+    this.navCtrl.push(HomeDietPage, {"params": dietUserStreaks}); // Push allows us to go back to the previous page
                                      // as opposed to changing root. See login.ts for more info
   }
   

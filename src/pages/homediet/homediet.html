@@ -8,24 +8,28 @@
 
 <ion-content>
   <ion-list>
-    <ion-card>
+    <ion-card *ngFor="let item of items">
       <ion-card-header>
-        DIET CARD 1
+       {{ item.streak.goalDescription }}
       </ion-card-header>
-      <ion-card-content>
-        DIET CONTENT 1
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
+        <ion-card-content>
+          <div *ngIf="item.streak.frequencyInfo.frequencyType == 0"> 
+            {{ item.streak.frequencyInfo.instancesPerWeek }} times a week, for {{ item.streak.frequencyInfo.cyclesToComplete  }} weeks. 
 
-  <ion-list>
-    <ion-card>
-      <ion-card-header>
-        DIET CARD 2
-      </ion-card-header>
-      <ion-card-content>
-        DIET CONTENT 2
-      </ion-card-content>
+            <div>
+              Number of weeks completed  {{ item.cyclesCompleted }} <br>
+              Number of days completed this week - {{ item.numberCompletedThisWeek }} 
+            </div>
+          </div>
+          <div *ngIf="item.streak.frequencyInfo.frequencyType == 1">
+            Daily for  {{ item.streak.frequencyInfo.cyclesToComplete  }} weeks.
+            <div>
+              Number of days completed- {{ item.cyclesCompleted }}
+              <br>
+            </div>
+          </div>
+
+        </ion-card-content>
     </ion-card>
   </ion-list>
 </ion-content>
