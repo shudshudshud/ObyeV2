@@ -7,8 +7,8 @@ import { ChallengesPage } from '../pages/challenges/challenges';
 import { CaloriePage } from '../pages/calorie/calorie';
 import { RewardsPage } from '../pages/rewards/rewards';
 import { HomePage } from '../pages/home/home';
-import { DietPopoverPage } from '../pages/home/dietpopover';
-import { ExercisePopoverPage } from '../pages/home/exercisepopover';
+import { HomeDietPage } from '../pages/homediet/homediet';
+import { HomeExercisePage } from '../pages/homeexercise/homeexercise';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
@@ -55,8 +55,8 @@ const cloudSettings: CloudSettings = {
     RewardsPage,
     ProfilePage,
     HomePage,
-    DietPopoverPage,
-    ExercisePopoverPage,
+    HomeDietPage,
+    HomeExercisePage,
     TabsPage,
     SummaryPage,
     LoginPage
@@ -77,8 +77,8 @@ const cloudSettings: CloudSettings = {
     RewardsPage,
     ProfilePage,
     HomePage,
-    DietPopoverPage,
-    ExercisePopoverPage,
+    HomeDietPage,
+    HomeExercisePage,
     TabsPage,
     SummaryPage,
     LoginPage
