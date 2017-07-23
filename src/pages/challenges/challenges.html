@@ -1,17 +1,26 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar no-border-bottom>
     <ion-title>
       Challenges
     </ion-title>
   </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="challenges">
+      <ion-segment-button value="diet">
+        Diet
+      </ion-segment-button>
+      <ion-segment-button value="exercise">
+        Exercise
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-CHALLENGES WILL GO HERE
-
-
-  <ion-list>
-    <button ion-item *ngFor="let item of items | async">
+  <div [ngSwitch]="challenges">
+    <ion-list *ngSwitchCase="'diet'">
+      <button ion-item *ngFor="let item of items | async">
       <ion-card>
         <ion-card-header>
            {{ item.goalDescription }}
@@ -28,5 +37,27 @@ CHALLENGES WILL GO HERE
         </ion-card-content>
       </ion-card>
     </button>
-  </ion-list>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'exercise'">
+      <button ion-item *ngFor="let item of items | async">
+      <ion-card>
+        <ion-card-header>
+           {{ item.goalDescription }}
+        </ion-card-header>
+
+        <ion-card-content>
+          <div *ngIf="item.frequencyInfo.frequencyType == 0"> 
+            {{ item.frequencyInfo.instancesPerWeek }} times a week, for {{ item.frequencyInfo.cyclesToComplete  }} weeks.
+
+          </div>
+          <div *ngIf="item.frequencyInfo.frequencyType == 1">
+            Daily for  {{ item.frequencyInfo.cyclesToComplete  }} weeks
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </button>
+    </ion-list>
+
+  </div>
 </ion-content>
