@@ -10,6 +10,11 @@ import { HomePage } from '../pages/home/home';
 import { HomeDietPage } from '../pages/homediet/homediet';
 import { HomeExercisePage } from '../pages/homeexercise/homeexercise';
 
+import { StartingPopoverPage } from '../pages/popovers/startingpopover';
+import { ContinuousPopoverPage } from '../pages/popovers/continuouspopover';
+import { BrokenPopoverPage } from '../pages/popovers/brokenpopover';
+import { FinishedPopoverPage } from '../pages/popovers/finishedpopover';
+
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { SocialPage } from '../pages/social/social';
@@ -57,6 +62,10 @@ const cloudSettings: CloudSettings = {
     HomePage,
     HomeDietPage,
     HomeExercisePage,
+    StartingPopoverPage,
+    ContinuousPopoverPage,
+    BrokenPopoverPage,
+    FinishedPopoverPage,
     TabsPage,
     SummaryPage,
     LoginPage
@@ -79,6 +88,10 @@ const cloudSettings: CloudSettings = {
     HomePage,
     HomeDietPage,
     HomeExercisePage,
+    StartingPopoverPage,
+    ContinuousPopoverPage,
+    BrokenPopoverPage,
+    FinishedPopoverPage,
     TabsPage,
     SummaryPage,
     LoginPage
