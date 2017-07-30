@@ -19,24 +19,24 @@
 
 <ion-content padding>
   <div [ngSwitch]="challenges">
+    
     <ion-list *ngSwitchCase="'diet'">
       <div *ngFor="let item of items | async">
       <button ion-item *ngIf="item.type.maintype == 1">
        <ion-card>
-        <ion-card-header>
-           {{ item.goalDescription }}
-        </ion-card-header>
-
-        <ion-card-content>
           <img [src]="item.imageURL">
-          <div *ngIf="item.frequencyInfo.frequencyType == 0"> 
+          <ion-card-title style="text-align: center; ">
+           {{ item.goalDescription }}
+          </ion-card-title>
+          <!--
+          <div *ngIf="item.frequencyInfo.frequencyType == 0" style="text-align: center; "> 
             {{ item.frequencyInfo.instancesPerWeek }} times a week, for {{ item.frequencyInfo.cyclesToComplete  }} weeks.
 
           </div>
-          <div *ngIf="item.frequencyInfo.frequencyType == 1">
-            Daily for  {{ item.frequencyInfo.cyclesToComplete  }} weeks
+          <div *ngIf="item.frequencyInfo.frequencyType == 1" style="text-align: center; ">
+            Daily for  {{ item.frequencyInfo.cyclesToComplete  }} days
           </div>
-        </ion-card-content>
+          -->
       </ion-card>
     </button>
     </div>
@@ -46,20 +46,19 @@
       <div *ngFor="let item of items | async">
       <button ion-item *ngIf="item.type.maintype == 0">
       <ion-card>
-        <ion-card-header>
-           {{ item.goalDescription }}
-        </ion-card-header>
-
-        <ion-card-content>
           <img [src]="item.imageURL">
-          <div *ngIf="item.frequencyInfo.frequencyType == 0"> 
+        <ion-card-title style="text-align: center; ">
+           {{ item.goalDescription }}
+        </ion-card-title>
+          <!--
+          <div *ngIf="item.frequencyInfo.frequencyType == 0" style="text-align: center; "> 
             {{ item.frequencyInfo.instancesPerWeek }} times a week, for {{ item.frequencyInfo.cyclesToComplete  }} weeks.
 
           </div>
-          <div *ngIf="item.frequencyInfo.frequencyType == 1">
+          <div *ngIf="item.frequencyInfo.frequencyType == 1" style="text-align: center; ">
             Daily for  {{ item.frequencyInfo.cyclesToComplete  }} days
           </div>
-        </ion-card-content>
+          -->
       </ion-card>
     </button>
     </div>
