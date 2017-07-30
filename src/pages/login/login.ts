@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, LoadingController } from 'ionic-angular';
 import { GoogleAuth, FacebookAuth, Auth, User, UserSocialProviderDetailsData } from '@ionic/cloud-angular';
 import { TabsPage } from '../tabs/tabs';
 import { userDataStorageKey, testUserData, liftStreak, allStreaks } from '../../globals'
@@ -41,22 +41,25 @@ import { AngularFireDatabase } from 'angularfire2/database';
 export class LoginPage {
   //streakOne: Streak = {"uid": "1234", "title": "Run 15 min a day!", "daysCompleted": 10, "daysTotal": 10}
   //defaultUserData: UserData = { "streaks": [this.streakOne]}
-
-  constructor(public googleAuth: GoogleAuth, public facebookAuth: FacebookAuth, public auth: Auth, public user: User, public navCtrl: NavController, public db: AngularFireDatabase) {
+  loading: any;
+  constructor(public googleAuth: GoogleAuth, public facebookAuth: FacebookAuth, public auth: Auth, public user: User, public navCtrl: NavController, public db: AngularFireDatabase, public loadingCtrl: LoadingController) {
 
 
   }
 
   loginGoogle() {
     console.log("Beginning Google Login");
+    this.displayLoginLoading();
     this.googleAuth.login().then(() => { 
+      this.dismissLoginLoading();
       let userGoogle: UserSocialProviderDetailsData = this.user.social.google.data;
-      alert(userGoogle.full_name + " - " + userGoogle.email);
+      // alert(userGoogle.full_name + " - " + userGoogle.email);
 
       this.readUserData();
       this.goToMainPage();
 
     }).catch((err) => { 
+      this.dismissLoginLoading();
       alert("Auth failed - reason: " + err);
     })
   }
@@ -64,16 +67,33 @@ export class LoginPage {
 
   loginFacebook() {
     console.log("Beginning Facebook Login");
+    this.displayLoginLoading();
     this.facebookAuth.login().then(() => { 
+      this.dismissLoginLoading();
       let userFacebook: UserSocialProviderDetailsData = this.user.social.facebook.data;
-      alert("Facebook data: " + userFacebook.full_name + " - " + userFacebook.email);
+      // alert("Facebook data: " + userFacebook.full_name + " - " + userFacebook.email);
 
       this.readUserData();
       this.goToMainPage();
 
     }).catch((err) => { 
+      this.dismissLoginLoading();
       alert("Auth failed - reason: " + err);
     })
+  }
+
+  displayLoginLoading() {
+     this.loading = this.loadingCtrl.create({
+      content: 'Logging in...'
+    });
+
+    this.loading.present();
+  }
+
+  dismissLoginLoading() {
+    if (this.loading != null) {
+      this.loading.dismiss();
+    }
   }
 
 
@@ -90,14 +110,14 @@ export class LoginPage {
         this.user.set(userDataStorageKey, testUserData);
         // Set our local copy to default as well
         userData = testUserData;
-        alert("No data present - set to defaults!");
+        // alert("No data present - set to defaults!");
         this.user.save().then(() => { alert("User Data saved to Ionic!")}).catch((err) => "Error: " + err);
       } else {
-        alert("data was already stored! - " + userData.toString())
+        // alert("data was already stored! - " + userData.toString())
       }
 
       for (let userStreak of userData.streaks) {
-        alert("User Streak name: " + userStreak.streak.goalDescription);
+        // alert("User Streak name: " + userStreak.streak.goalDescription);
       }
   }
 

@@ -55,7 +55,7 @@ export const runStreak: Streak =
 {
   uid: 0,
   type: exerciseEnduranceStreakClassification,
-  goalDescription: "Run 32km WITHOUT TRAINING",
+  goalDescription: "Walk",
   frequencyInfo: dailyFrequencyTenWeeks,
 }
 
@@ -63,7 +63,7 @@ export const liftStreak: Streak =
 {
   uid: 1,
   type: exerciseStrengthStreakClassification,
-  goalDescription: "Lift 100kg with your BARE HANDS",
+  goalDescription: "Do squats",
   frequencyInfo: dailyFrequencyTenWeeks,
 }
 
@@ -71,7 +71,7 @@ export const miloStreak: Streak =
 {
   uid: 2,
   type: dietDrinksStreakClassification,
-  goalDescription: "No MILO",
+  goalDescription: "No milo",
   frequencyInfo: dailyFrequencyTenWeeks,
 }
 
@@ -83,52 +83,32 @@ export const oilyFoodStreak: Streak =
   frequencyInfo: weeklyTwiceFrequency5Weeks,
 }
 
-export const friedChickenFoodStreak: Streak = 
+export const sweetDrinksStreak: Streak = 
 {
   uid: 4,
   type: dietFoodStreakClassification,
-  goalDescription: "No fried chicken",
+  goalDescription: "No sweet drinks",
   frequencyInfo: weeklyTwiceFrequency5Weeks,
 }
-
-export const starvationFoodStreak: Streak = 
-{
-  uid: 5,
-  type: dietFoodStreakClassification,
-  goalDescription: "Starve yourself",
-  frequencyInfo: weeklyTwiceFrequency5Weeks,
-}
-
-
-
 
 
 // Streaks to populate with
-export const allStreaks: Streak[] = [runStreak, liftStreak, miloStreak, oilyFoodStreak, friedChickenFoodStreak, starvationFoodStreak];
+export const allStreaks: Streak[] = [runStreak, liftStreak, miloStreak, oilyFoodStreak, sweetDrinksStreak];
 
 
 
 
 // Streak for a particular user
-export const testUserLiftStreak: UserStreak = 
+export const testUserNoMiloStreak: UserStreak = 
 {
-    streak: liftStreak,
-    cyclesCompleted: 5,
+    streak: miloStreak,
+    cyclesCompleted: 0,
     numberCompletedThisWeek: -1,
-    startDate: new Date(2017, 6, 20, 10, 10, 10, 10),
+    startDate: new Date(),
     status: StreakStatus.Active
 }
 
 
-// Streak for a particular user
-export const testUserStarveStreak: UserStreak = 
-{
-    streak: starvationFoodStreak,
-    cyclesCompleted: 2,
-    numberCompletedThisWeek: 1,
-    startDate: new Date(2017, 6, 21, 10, 10, 10, 10),
-    status: StreakStatus.Active
-}
 
 
 
@@ -141,7 +121,7 @@ export const testBodyData: BodyData =
 
 export const testUserData: UserData = 
 {
-    streaks: [testUserLiftStreak, testUserStarveStreak],
+    streaks: [testUserNoMiloStreak],
     bodyData: testBodyData
 }
 
