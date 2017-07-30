@@ -15,6 +15,7 @@ import { ContinuousPopoverPage } from '../pages/popovers/continuouspopover';
 import { BrokenPopoverPage } from '../pages/popovers/brokenpopover';
 import { BrokenPopoverPage2 } from '../pages/popovers/brokenpopover2';
 import { FinishedPopoverPage } from '../pages/popovers/finishedpopover';
+import { DetailPopoverPage } from '../pages/popovers/detailpopover';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
@@ -68,6 +69,7 @@ const cloudSettings: CloudSettings = {
     BrokenPopoverPage,
     BrokenPopoverPage2,
     FinishedPopoverPage,
+    DetailPopoverPage,
     TabsPage,
     SummaryPage,
     LoginPage
@@ -95,6 +97,7 @@ const cloudSettings: CloudSettings = {
     BrokenPopoverPage,
     BrokenPopoverPage2,
     FinishedPopoverPage,
+    DetailPopoverPage,
     TabsPage,
     SummaryPage,
     LoginPage

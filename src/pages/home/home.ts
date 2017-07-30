@@ -6,6 +6,8 @@ import { HomeExercisePage } from '../homeexercise/homeexercise';
 import { HomeDietPage } from '../homediet/homediet';
 import { ChallengesPage } from '../challenges/challenges';
 import { StartingPopoverPage } from '../popovers/startingpopover';
+import { ContinuousPopoverPage } from '../popovers/continuouspopover';
+import { BrokenPopoverPage } from '../popovers/brokenpopover';
 /*
 import { ExercisePopoverPage } from './exercisepopover';
 import { DietPopoverPage } from './dietpopover';
@@ -41,7 +43,7 @@ export class HomePage {
     }, 2000);
   }
 
-
+/*
   goToHomeExercise() {
     let exerciseUserStreaks: UserStreak[] = this.items.filter(function(item) {
       return item.streak.type.maintype == StreakType.Exercise;
@@ -58,6 +60,7 @@ export class HomePage {
                                      // as opposed to changing root. See login.ts for more info
   }
   
+  */
   goToChallengesPage(myEvent) {
     this.navCtrl.parent.select(2);
 
@@ -102,6 +105,11 @@ export class HomePage {
     }
 
     this.updateUserData();
+    
+    let popover = this.popoverCtrl.create(ContinuousPopoverPage);
+    popover.present({
+    });
+
   }
 
   /**
