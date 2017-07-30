@@ -14,6 +14,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
   </ion-header>
 
   <ion-content padding>
+  <img src="assets/img/splash_NEW.png">
    <ion-grid text-center>
     <ion-row justify-content-center> 
     <ion-col col-auto>
