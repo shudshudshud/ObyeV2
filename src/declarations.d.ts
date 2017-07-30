@@ -65,7 +65,9 @@ declare interface UserStreak {
   // If this is weekly - how many times have we completed it this week. Otherwise, irrelevant.
   numberCompletedThisWeek: number,
   // Exactly what date this streak was started.
-  startDate: Date
+  startDate: Date,
+  // Reps, if this is an exercise
+  reps: number
 }
 
 declare interface BodyData {

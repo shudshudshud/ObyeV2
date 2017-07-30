@@ -51,13 +51,13 @@ export const weeklyTwiceFrequency5Weeks: FrequencyInfo =
 
 // Actual streaks
 
-export const runStreak: Streak = 
+export const pushupsStreak: Streak = 
 {
   uid: 0,
-  type: exerciseEnduranceStreakClassification,
-  goalDescription: "Walk",
+  type: exerciseStrengthStreakClassification,
+  goalDescription: "Do pushups",
   frequencyInfo: dailyFrequencyThreeWeeks,
-  imageURL: "assets/img/walking.png"
+  imageURL: "assets/img/squats.png"
 }
 
 export const liftStreak: Streak = 
@@ -106,7 +106,7 @@ export const waterStreak: Streak =
 }
 
 // Streaks to populate with
-export const allStreaks: Streak[] = [runStreak, liftStreak, miloStreak, oilyFoodStreak, sweetDrinksStreak, waterStreak];
+export const allStreaks: Streak[] = [pushupsStreak, liftStreak, miloStreak, oilyFoodStreak, sweetDrinksStreak, waterStreak];
 
 
 
@@ -118,7 +118,8 @@ export const testUserNoMiloStreak: UserStreak =
     cyclesCompleted: 0,
     numberCompletedThisWeek: -1,
     startDate: new Date(),
-    status: StreakStatus.Active
+    status: StreakStatus.Active,
+    reps: 0
 }
 
 
