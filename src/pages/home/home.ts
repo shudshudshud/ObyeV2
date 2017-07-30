@@ -4,6 +4,7 @@ import { ViewController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { HomeExercisePage } from '../homeexercise/homeexercise';
 import { HomeDietPage } from '../homediet/homediet';
+import { ChallengesPage } from '../challenges/challenges';
 import { StartingPopoverPage } from '../popovers/startingpopover';
 /*
 import { ExercisePopoverPage } from './exercisepopover';
@@ -57,11 +58,15 @@ export class HomePage {
                                      // as opposed to changing root. See login.ts for more info
   }
   
-  presentStartingPopover(myEvent) {
+  goToChallengesPage(myEvent) {
+    this.navCtrl.parent.select(2);
+
+    /*
     let popover = this.popoverCtrl.create(StartingPopoverPage);
     popover.present({
       ev: myEvent
     });
+    */
   }
   /*
   presentDietPopover(myEvent) {
