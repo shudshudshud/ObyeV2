@@ -31,10 +31,10 @@ export const exerciseEnduranceStreakClassification: StreakClassification =
 
 
 // Frequencies
-export const dailyFrequencyTenWeeks: FrequencyInfo = 
+export const dailyFrequencyThreeWeeks: FrequencyInfo = 
 {
     frequencyType: FrequencyType.Daily,
-    cyclesToComplete: 10,
+    cyclesToComplete: 21,
     instancesPerWeek: 7
 }
 
@@ -42,7 +42,7 @@ export const dailyFrequencyTenWeeks: FrequencyInfo =
 export const weeklyTwiceFrequency5Weeks: FrequencyInfo = 
 {
     frequencyType: FrequencyType.Weekly,
-    cyclesToComplete: 5,
+    cyclesToComplete: 3,
     instancesPerWeek: 2
 }
 
@@ -56,7 +56,8 @@ export const runStreak: Streak =
   uid: 0,
   type: exerciseEnduranceStreakClassification,
   goalDescription: "Walk",
-  frequencyInfo: dailyFrequencyTenWeeks,
+  frequencyInfo: dailyFrequencyThreeWeeks,
+  imageURL: "assets/img/walking.png"
 }
 
 export const liftStreak: Streak = 
@@ -64,7 +65,8 @@ export const liftStreak: Streak =
   uid: 1,
   type: exerciseStrengthStreakClassification,
   goalDescription: "Do squats",
-  frequencyInfo: dailyFrequencyTenWeeks,
+  frequencyInfo: dailyFrequencyThreeWeeks,
+  imageURL: "assets/img/squats.png"
 }
 
 export const miloStreak: Streak = 
@@ -72,7 +74,8 @@ export const miloStreak: Streak =
   uid: 2,
   type: dietDrinksStreakClassification,
   goalDescription: "No milo",
-  frequencyInfo: dailyFrequencyTenWeeks,
+  frequencyInfo: dailyFrequencyThreeWeeks,
+  imageURL: "assets/img/milo.png"
 }
 
 export const oilyFoodStreak: Streak = 
@@ -80,7 +83,8 @@ export const oilyFoodStreak: Streak =
   uid: 3,
   type: dietFoodStreakClassification,
   goalDescription: "No oily food",
-  frequencyInfo: weeklyTwiceFrequency5Weeks,
+  frequencyInfo: dailyFrequencyThreeWeeks,
+  imageURL: "assets/img/oilyfood.png"
 }
 
 export const sweetDrinksStreak: Streak = 
@@ -88,12 +92,21 @@ export const sweetDrinksStreak: Streak =
   uid: 4,
   type: dietFoodStreakClassification,
   goalDescription: "No sweet drinks",
-  frequencyInfo: weeklyTwiceFrequency5Weeks,
+  frequencyInfo: dailyFrequencyThreeWeeks,
+  imageURL: "assets/img/milo.png"
 }
 
+export const waterStreak: Streak = 
+{
+  uid: 5,
+  type: dietFoodStreakClassification,
+  goalDescription: "Drink 6 glasses of water",
+  frequencyInfo: dailyFrequencyThreeWeeks,
+  imageURL: "assets/img/water.png"
+}
 
 // Streaks to populate with
-export const allStreaks: Streak[] = [runStreak, liftStreak, miloStreak, oilyFoodStreak, sweetDrinksStreak];
+export const allStreaks: Streak[] = [runStreak, liftStreak, miloStreak, oilyFoodStreak, sweetDrinksStreak, waterStreak];
 
 
 

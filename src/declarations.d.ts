@@ -48,6 +48,8 @@ declare interface Streak {
   goalDescription: string,
   // On what timescale will this streak be considered?
   frequencyInfo:  FrequencyInfo,
+  // What image to display
+  imageURL: string,
 }
 
 // Information about how well a user is doing in a streak
