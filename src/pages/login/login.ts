@@ -66,6 +66,7 @@ export class LoginPage {
 
 
   loginFacebook() {
+    /*
     console.log("Beginning Facebook Login");
     this.displayLoginLoading();
     this.facebookAuth.login().then(() => { 
@@ -80,6 +81,7 @@ export class LoginPage {
       this.dismissLoginLoading();
       alert("Auth failed - reason: " + err);
     })
+    */
   }
 
   displayLoginLoading() {
