@@ -22,7 +22,7 @@
     
     <ion-list *ngSwitchCase="'diet'">
       <div *ngFor="let item of items | async">
-      <button ion-item *ngIf="item.type.maintype == 1">
+      <button ion-item *ngIf="item.type.maintype == 1" (click)="showChallengePopover(item)">
        <ion-card>
           <img [src]="item.imageURL">
           <ion-card-title style="text-align: center; ">
@@ -44,7 +44,7 @@
 
     <ion-list *ngSwitchCase="'exercise'">
       <div *ngFor="let item of items | async">
-      <button ion-item *ngIf="item.type.maintype == 0">
+      <button ion-item *ngIf="item.type.maintype == 0" (click)="showChallengePopover(item)">
       <ion-card>
           <img [src]="item.imageURL">
         <ion-card-title style="text-align: center; ">
