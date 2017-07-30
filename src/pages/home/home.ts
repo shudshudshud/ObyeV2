@@ -118,6 +118,44 @@ export class HomePage {
 
   }
 
+  handleDeny(item: UserStreak) {
+    if ((<any>item).stopRunning) return;
+    console.log("Got item");
+    console.log(item)
+
+    // if (item.numberCompletedThisWeek == -1) {
+      // This is a daily streak. Just increase the number of cycles completed
+      // But only if we have more cycles to complete
+      console.log("Deny running for daily cycle");
+      /*
+      // Increase number of cycles done
+      if (item.cyclesCompleted < item.streak.frequencyInfo.cyclesToComplete) {
+        item.cyclesCompleted += 1;
+        console.log("Increased cycles completed to: " + item.cyclesCompleted);
+      }
+
+      if (item.cyclesCompleted >= item.streak.frequencyInfo.cyclesToComplete) {
+        // The current streak is completed
+        item.status = StreakStatus.Succeeded;
+        console.log("Streak success!");
+      }
+      */
+      (<any> item).tickcolor = "grey";
+      (<any> item).crosscolor = "grey";
+      (<any> item).stopRunning = true;
+  //   } else {
+      // This is a weekly cycle. Increment the number of cycles for this week
+      // alert("Weekly cycle logic not implemented")
+   // }
+
+    // this.updateUserData();
+    
+    let popover = this.popoverCtrl.create(BrokenPopoverPage);
+    popover.present({
+    });
+
+  }
+
   /**
    * Reads all of the user's data from Ionic Auth
    */
