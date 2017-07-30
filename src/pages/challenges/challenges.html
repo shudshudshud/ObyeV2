@@ -28,6 +28,7 @@
         </ion-card-header>
 
         <ion-card-content>
+          <img [src]="item.imageURL">
           <div *ngIf="item.frequencyInfo.frequencyType == 0"> 
             {{ item.frequencyInfo.instancesPerWeek }} times a week, for {{ item.frequencyInfo.cyclesToComplete  }} weeks.
 
@@ -50,12 +51,13 @@
         </ion-card-header>
 
         <ion-card-content>
+          <img [src]="item.imageURL">
           <div *ngIf="item.frequencyInfo.frequencyType == 0"> 
             {{ item.frequencyInfo.instancesPerWeek }} times a week, for {{ item.frequencyInfo.cyclesToComplete  }} weeks.
 
           </div>
           <div *ngIf="item.frequencyInfo.frequencyType == 1">
-            Daily for  {{ item.frequencyInfo.cyclesToComplete  }} weeks
+            Daily for  {{ item.frequencyInfo.cyclesToComplete  }} days
           </div>
         </ion-card-content>
       </ion-card>
