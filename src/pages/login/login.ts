@@ -32,6 +32,9 @@ import { AngularFireDatabase } from 'angularfire2/database';
      <button ion-button class="button-block" color="dark" (click)="populateDatabase()">
       Populate DB 
      </button>
+     <button ion-button class="button-block" color="dark" (click)="resetData()">
+      Reset User Data
+     </button>
     </ion-col>
     </ion-row>
   </ion-grid>
@@ -146,6 +149,13 @@ export class LoginPage {
       .catch(err => console.log("Encountered error: " + err));
     });
 
+  }
+
+  resetData() {
+        // Set this user's (local) data to default
+        this.user.set(userDataStorageKey, testUserData);
+        // alert("No data present - set to defaults!");
+        this.user.save().then(() => { alert("User Data saved to Ionic!")}).catch((err) => "Error: " + err);
   }
 
 }
