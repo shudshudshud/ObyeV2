@@ -13,6 +13,7 @@ import { HomeExercisePage } from '../pages/homeexercise/homeexercise';
 import { StartingPopoverPage } from '../pages/popovers/startingpopover';
 import { ContinuousPopoverPage } from '../pages/popovers/continuouspopover';
 import { BrokenPopoverPage } from '../pages/popovers/brokenpopover';
+import { BrokenPopoverPage2 } from '../pages/popovers/brokenpopover2';
 import { FinishedPopoverPage } from '../pages/popovers/finishedpopover';
 
 import { TabsPage } from '../pages/tabs/tabs';
@@ -65,6 +66,7 @@ const cloudSettings: CloudSettings = {
     StartingPopoverPage,
     ContinuousPopoverPage,
     BrokenPopoverPage,
+    BrokenPopoverPage2,
     FinishedPopoverPage,
     TabsPage,
     SummaryPage,
@@ -91,6 +93,7 @@ const cloudSettings: CloudSettings = {
     StartingPopoverPage,
     ContinuousPopoverPage,
     BrokenPopoverPage,
+    BrokenPopoverPage2,
     FinishedPopoverPage,
     TabsPage,
     SummaryPage,

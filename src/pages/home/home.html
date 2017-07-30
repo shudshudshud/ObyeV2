@@ -49,9 +49,9 @@
 
 <ion-list>
   
-  <ion-card style="margin: 0 !important; padding: 0 !important" ion-item *ngFor="let item of items">
+  <ion-card style="margin: 0 !important;" ion-item *ngFor="let item of items">
     <div>
-      <img src="assets/img/milo.png">
+      <img [src]="item.streak.imageURL">
     </div>
     <div style="text-align: center">
         <ion-icon  *ngIf="item.streak.type.maintype == 0" name="basketball" item-start></ion-icon>
