@@ -118,7 +118,8 @@ export const testUserNoMiloStreak: UserStreak =
     cyclesCompleted: 0,
     numberCompletedThisWeek: -1,
     startDate: new Date(),
-    status: StreakStatus.Active
+    status: StreakStatus.Active,
+    reps: 0
 }
 
 

@@ -18,7 +18,7 @@ export class ChallengesPage {
   }
 
   showChallengePopover(item: Streak) {
-    let popover = this.popoverCtrl.create(DetailPopoverPage);
+    let popover = this.popoverCtrl.create(DetailPopoverPage, {"streak": item});
     popover.present({
     });
   }
