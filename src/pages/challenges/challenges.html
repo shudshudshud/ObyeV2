@@ -20,8 +20,9 @@
 <ion-content padding>
   <div [ngSwitch]="challenges">
     <ion-list *ngSwitchCase="'diet'">
-      <button ion-item *ngFor="let item of items | async">
-      <ion-card>
+      <div *ngFor="let item of items | async">
+      <button ion-item *ngIf="item.type.maintype == 1">
+       <ion-card>
         <ion-card-header>
            {{ item.goalDescription }}
         </ion-card-header>
@@ -38,10 +39,12 @@
         </ion-card-content>
       </ion-card>
     </button>
+    </div>
     </ion-list>
 
     <ion-list *ngSwitchCase="'exercise'">
-      <button ion-item *ngFor="let item of items | async">
+      <div *ngFor="let item of items | async">
+      <button ion-item *ngIf="item.type.maintype == 0">
       <ion-card>
         <ion-card-header>
            {{ item.goalDescription }}
@@ -59,7 +62,8 @@
         </ion-card-content>
       </ion-card>
     </button>
-    </ion-list>
+    </div>
+  </ion-list>
 
   </div>
 </ion-content>
