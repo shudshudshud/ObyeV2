@@ -109,7 +109,7 @@ export class HomePage {
 
     if (this.userData != null) {
       for (let userStreak of this.userData.streaks) {
-        alert("User Streak name: " + userStreak.streak.goalDescription);
+        // alert("User Streak name: " + userStreak.streak.goalDescription);
       }
     } else {
       alert("No user data found.");
